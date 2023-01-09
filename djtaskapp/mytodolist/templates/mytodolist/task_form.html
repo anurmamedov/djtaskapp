@@ -1,0 +1,25 @@
+{% extends 'mytodolist/main.html' %}
+{% block content %}  
+
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Return Back</a>
+
+{% if request.user.is_authenticated %}
+<p stlyle="color: black;">{{request.user}}</p>
+{% endif %}    
+</div>
+
+
+<div class="card-body">
+    <form method="POST" action="">
+        {% csrf_token %} 
+        {{ form.as_p }}
+
+        <input class="button" type="submit" value="Submit">
+        
+        </div>
+    </form>
+</div>
+
+{% endblock content %}  
